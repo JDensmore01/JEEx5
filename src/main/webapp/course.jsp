@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="WEB-INF/jspf/declarativemethods.jspf" %>
 <%@ page import="edu.nbcc.*" %>
 <!DOCTYPE html>
 <html>
@@ -15,6 +16,7 @@
     </head>
     <body>
          <%@include file="WEB-INF/jspf/navigation.jspf" %>
+         <% setUpCourse(); %>
         <h1>Course</h1>
         <table class="table table-striped">
             <tr>
@@ -24,14 +26,14 @@
                 <th>Course Name</th>
                 <th>Course Term</th>              
             </tr>           
-           
+           <% for (Course c : course.getCourses()) { %>
             <tr>
-                <td></a></td>
-                <td></td>
-                <td></td>
+                <td><a href="<%=response.encodeURL("courseDetails.jsp")%>?id=<%=c.getId()%>">Click Me</a></td>
+                <td><%= c.getName() %></td>
+                <td><%= c.getTerm() %></td>
              
             </tr>
-                
+           <% } %> 
                 
         </table>
         <%@include file="WEB-INF/jspf/footer.jspf" %>

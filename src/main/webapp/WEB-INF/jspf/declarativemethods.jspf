@@ -3,9 +3,25 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.text.NumberFormat"%>
+<%@page import="edu.nbcc.course.Course" %>
+<%@page import="edu.nbcc.person.Person " %>
 
 <%@ page pageEncoding="UTF-8" %>
 <%!
+
+ArrayList<String> errors = new ArrayList<String>();
+public Course course;
+public Person person;
+
+public void setUpPerson() {
+	if (person == null)
+		person = new Person();
+}
+
+public void setUpCourse() {
+	if (course == null)
+		course = new Course();
+}
 
 
     /**
